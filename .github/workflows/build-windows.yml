@@ -30,7 +30,7 @@ jobs:
           pyinstaller --onefile --windowed --name AeroDesign app_main.py
 
       - name: Upload exe artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: AeroDesign-exe
           path: aero_design\dist\AeroDesign.exe
