@@ -29,6 +29,17 @@ jobs:
           cd aero_design
           pyinstaller --onefile --windowed --name AeroDesign app_main.py
 
+      - name: Show dist contents (debug)
+        shell: powershell
+        run: |
+          Write-Host "Listing aero_design\dist contents"
+          if (Test-Path 'aero_design\dist') {
+            Get-ChildItem -Path aero_design\dist -Recurse | Format-List
+          } else {
+            Write-Host 'aero_design\dist not found'
+            Exit 1
+          }
+
       - name: Upload exe artifact
         uses: actions/upload-artifact@v4
         with:
